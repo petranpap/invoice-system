@@ -1,0 +1,805 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	
+	<title>Invoice System</title>
+	
+	<link rel='stylesheet' type='text/css' href='css/style.css' />
+	<link rel='stylesheet' type='text/css' href='css/print.css' media="print" />
+	<!-- <script type='text/javascript' src='js/jquery-1.3.2.min.js'></script> -->
+	<!-- <script type='text/javascript' src='js/example.js'></script> -->
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!------ Include the above in your HEAD tag ---------->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script src='https://html2canvas.hertzen.com/dist/html2canvas.min.js'></script>
+	<style type="text/css">
+
+		 		#header{
+		 			height: 1px;
+		 			background-color: #ffffff;
+		 			margin: 0px;
+		 	}
+		 
+	</style>
+
+</head>
+
+<body>
+
+	<div id="page-wrap">
+
+		<div id="header"></div>
+		
+		<div id="identity">
+		
+            <textarea id="address">Name
+
+Tel.no.: 9999999
+
+cert.no.: 3402
+
+V.A.T. no.:123456789</textarea>
+</div>
+<table id="meta">
+                <tr>
+                    <td class="meta-head">Invoice #</td>
+                    <td><textarea id="inv"></textarea></td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head">Name</td>
+                    <td><textarea id="name"></textarea></td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head">Year</td>
+                    <td><textarea id="year"></textarea></td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head">Model</td>
+                    <td><textarea id="model"></textarea></td>
+                </tr>
+                <tr>
+
+                    <td class="meta-head">Vehicle no.(VIN)</td>
+                    <td><textarea id="vin"></textarea></td>
+                </tr>
+              
+
+            </table>
+<!-- 
+            <div id="logo">
+
+              <div id="logoctr">
+                <a href="javascript:;" id="change-logo" title="Change logo">Change Logo</a>
+                <a href="javascript:;" id="save-logo" title="Save changes">Save</a>
+                |
+                <a href="javascript:;" id="delete-logo" title="Delete logo">Delete Logo</a>
+                <a href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
+              </div>
+
+              <div id="logohelp">
+                <input id="imageloc" type="text" size="50" value="" /><br />
+                (max width: 540px, max height: 100px)
+              </div>
+              <img id="image" src="images/logo.png" alt="logo" />
+            </div> -->
+		
+		</div>
+		
+		<div style="clear:both"></div>
+		          
+		
+		<!-- <div id="customer">
+
+            <textarea id="customer-title">Widget Corp.
+c/o Steve Widget</textarea>
+
+            
+		
+		</div> -->
+		<div id="invoices"  data-html2canvas-ignore="true"></div>
+		<table id="items">
+		
+		  <tr>
+		      <th>Date</th>
+		      <th>Description</th>
+		      <th>Shop Name</th>
+		      <th>Contact</th>	
+		      <th>Phone Number</th>	
+		      <th>Labor Cost</th>	
+		      <th>Parts Cost</th>	
+		      <th>Warranty</th>
+		      <th>Total Cost</th>
+
+		  </tr>
+		  <tbody id="tbody">
+		  
+		  <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      	    
+		      		<textarea id ="date_1"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_1"></textarea>
+		      </td>
+		      <td><textarea id="shop_1" class="cost"></textarea></td>
+		      <td><textarea id="contact_1" class="qty"></textarea></td>
+		      <td><textarea id="phone_1" class="qty"></textarea></td>
+		      <td><textarea id="labor_1" class="qty"></textarea></td>
+		      <td><textarea id="parts_1" class="qty"></textarea></td>
+		      <td><textarea id="warranty_1" class="qty"></textarea></td>
+		      <td><textarea id="total_1" class="price"></textarea></td>
+		  </tr>
+		  
+		  	   <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_2"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_2"></textarea>
+		      </td>
+		      <td><textarea id="shop_2" class="cost"></textarea></td>
+		      <td><textarea id="contact_2" class="qty"></textarea></td>
+		      <td><textarea id="phone_2" class="qty"></textarea></td>
+		      <td><textarea id="labor_2" class="qty"></textarea></td>
+		      <td><textarea id="parts_2" class="qty"></textarea></td>
+		      <td><textarea id="warranty_2" class="qty"></textarea></td>
+		      <td><textarea id="total_2" class="price"></textarea></td>
+		  </tr>
+		  	    <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_3"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_3"></textarea>
+		      </td>
+		      <td><textarea id="shop_3" class="cost"></textarea></td>
+		      <td><textarea id="contact_3" class="qty"></textarea></td>
+		      <td><textarea id="phone_3" class="qty"></textarea></td>
+		      <td><textarea id="labor_3" class="qty"></textarea></td>
+		      <td><textarea id="parts_3" class="qty"></textarea></td>
+		      <td><textarea id="warranty_3" class="qty"></textarea></td>
+		      <td><textarea id="total_3" class="price"></textarea></td>
+		  </tr>
+		  	   <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_4"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_4"></textarea>
+		      </td>
+		      <td><textarea id="shop_4" class="cost"></textarea></td>
+		      <td><textarea id="contact_4" class="qty"></textarea></td>
+		      <td><textarea id="phone_4" class="qty"></textarea></td>
+		      <td><textarea id="labor_4" class="qty"></textarea></td>
+		      <td><textarea id="parts_4" class="qty"></textarea></td>
+		      <td><textarea id="warranty_4" class="qty"></textarea></td>
+		      <td><textarea id="total_4" class="price"></textarea></td>
+		  </tr>
+		  <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_5"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_5"></textarea>
+		      </td>
+		      <td><textarea id="shop_5" class="cost"></textarea></td>
+		      <td><textarea id="contact_5" class="qty"></textarea></td>
+		      <td><textarea id="phone_5" class="qty"></textarea></td>
+		      <td><textarea id="labor_5" class="qty"></textarea></td>
+		      <td><textarea id="parts_5" class="qty"></textarea></td>
+		      <td><textarea id="warranty_5" class="qty"></textarea></td>
+		      <td><textarea id="total_5" class="price"></textarea></td>
+		  </tr>
+		  <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_6"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_6"></textarea>
+		      </td>
+		      <td><textarea id="shop_6" class="cost"></textarea></td>
+		      <td><textarea id="contact_6" class="qty"></textarea></td>
+		      <td><textarea id="phone_6" class="qty"></textarea></td>
+		      <td><textarea id="labor_6" class="qty"></textarea></td>
+		      <td><textarea id="parts_6" class="qty"></textarea></td>
+		      <td><textarea id="warranty_6" class="qty"></textarea></td>
+		      <td><textarea id="total_6" class="price"></textarea></td>
+		  </tr>
+		  <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_7"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_7"></textarea>
+		      </td>
+		      <td><textarea id="shop_7" class="cost"></textarea></td>
+		      <td><textarea id="contact_7" class="qty"></textarea></td>
+		      <td><textarea id="phone_7" class="qty"></textarea></td>
+		      <td><textarea id="labor_7" class="qty"></textarea></td>
+		      <td><textarea id="parts_7" class="qty"></textarea></td>
+		      <td><textarea id="warranty_7" class="qty"></textarea></td>
+		      <td><textarea id="total_7" class="price"></textarea></td>
+		  </tr>
+		  <tr class="item-row">
+		      <td class="item-name">
+		      	<div class="delete-wpr">
+		      		<textarea id ="date_8"></textarea>
+		      		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		      	</div>
+		      </td>
+		      <td class="description">
+		      	<textarea id="descofwork_"></textarea>
+		      </td>
+		      <td><textarea id="shop_8" class="cost"></textarea></td>
+		      <td><textarea id="contact_8" class="qty"></textarea></td>
+		      <td><textarea id="phone_8" class="qty"></textarea></td>
+		      <td><textarea id="labor_8" class="qty"></textarea></td>
+		      <td><textarea id="parts_8" class="qty"></textarea></td>
+		      <td><textarea id="warranty_8" class="qty"></textarea></td>
+		      <td><textarea id="total_8" class="price"></textarea></td>
+		  </tr>
+		</tbody>
+		   <tbody id="results_table">
+		  <tr id="hiderow"  data-html2canvas-ignore="true">
+		    <td colspan="5"><a id="addrow" href="javascript:;" title="Add a row">Add a row</a></td>
+		  </tr>
+		  
+		  <tr>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank">TOTAL :</td>
+		      <td class="blank"><textarea style=" height: 20px; " id="total_sum"></textarea></td>
+		  </tr>
+		  <tr>
+
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank">VAT</td>
+		      <td class="blank"><textarea style=" height: 20px; " id="vat"></textarea></td>
+		  </tr>
+		  <tr>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="blank">TOTAL REPAIR EXPENSES :</td>
+
+		      <td class="blank"><textarea style=" height: 20px; " id="total_repair_expenses"></textarea></td>
+		  </tr>
+	<!-- 	  <tr>
+		      <td colspan="2" class="blank"> </td>
+		      <td colspan="2" class="total-line balance">Balance Due</td>
+		      <td class="total-value balance"><div class="due">$875.00</div></td>
+		  </tr> -->
+		</tbody>
+		</table>
+		 <div id="buttons"> <button id="btn-save" type="submit" class="btn btn-primary" data-html2canvas-ignore="true">Save to file</button>     <button type="button"  id="printPageButton" data-html2canvas-ignore="true" class="btn btn-success">Print</button>
+<button id="update" type="submit" class="btn btn-danger" data-html2canvas-ignore="true" style="display:none">Update</button> <button id="savetodb" type="submit" class="btn btn-danger" data-html2canvas-ignore="true">Save</button></div>
+		 <!--<div id="addnewrows">-->
+   <!--         <p data-html2canvas-ignore="true">Add Row </p>-->
+   <!--         <input type="text" id="rowsinput" value="" data-html2canvas-ignore="true"/>-->
+
+   <!--        <button type="button" id="newrow" class="btn btn-primary" data-html2canvas-ignore="true"><i class="fas fa-plus"></i></button>-->
+   <!--        </div>	-->
+		
+		<!-- <div id="terms">
+		  <h5>Terms</h5>
+		  <textarea>NET 30 Days. Finance Charge of 1.5% will be made on unpaid balances after 30 days.</textarea>
+		</div> -->
+	
+	<!-- </div> -->
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="FileSaver/dist/FileSaver.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  <!--<script-->
+  <!--src="https://code.jquery.com/jquery-3.3.1.slim.js"-->
+  <!--integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="-->
+  <!--crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+    $(window).on("load", GetAllProperties);
+    $(window).on('load', function(){
+      $('#myInput').keyup(function(){
+ 
+  // Search text
+  var text = $(this).val();
+// console.log(text);
+ 
+    count = 0;
+
+      // Loop through the comment list
+       $('#invoices a').each(function() {
+
+
+        // If the list item does not contain the text phrase fade it out
+        if ($(this).text().search(new RegExp(text, "i")) < 0) {
+          $(this).hide();
+
+          // Show the list item if the phrase matches and increase the count by 1
+        } else {
+          $(this).show();
+          count++;
+        }
+
+      });
+
+  // Search and show
+  $('.content:contains("'+text+'")').show();
+ 
+ });
+});
+
+function GetAllProperties() {
+    function hideToggle(button, elem) {
+  $(button).click(function() {
+    $(elem).toggle();
+  });
+}
+
+
+// hideToggle(".button1", "#invoices");
+    var lastinv;
+    $.getJSON(window.location.origin + window.location.pathname+'api/public/all', function(data) {
+    $.each(data, function(index, element) {
+    //   console.log(element.invoice)
+       $('#invoices').append('<a id="'+element.invoice+'" href="#">'+element.invoice+'</a> | ');
+        $('#'+element.invoice).click(function(event) {
+           $('#update').css("display", "");
+           $('#savetodb').css("display", "none");
+        // var id = $('#'+element.invoice).attr('id');
+    //   alert(element.id);
+            $('#address').html(element.address);
+            $('#model').val(element.model);
+            $('#name').val(element.name);
+             $('#vin').val(element.vin);
+              $('#inv').val(element.invoice);
+              var obj =element.table_json;
+    var test = $.parseJSON(obj);
+// console.log(test);
+$.each(test, function(key,value) {
+    $('#'+value.id).val(value.value);
+    // console.log(value.value);
+    if (value.value == true){
+  
+$('#'+value.id).prop('checked', true);
+}
+}); 
+            //   $('#model').val(element.model);
+            //     $('#model').val(element.model);
+        });
+        
+    lastinv = element.invoice;
+    
+    });
+    // console.log(parseInt(lastinv, 10)+1);
+    $("#inv").val(parseInt(lastinv, 10)+1);
+    $('#head_inv').append(" <b>"+$('#inv').val()+"</b>");
+
+});
+$('#update').click(function() {
+  var arr = []; 
+			var arr2 = [];
+
+$('#tbody tr').each(function(index, element){
+ var $this = $(this);
+      var $items = $this.find("input,textarea");
+	  $.each($items, function(n, e)
+      {
+	if($(this)[0].checked == true) {
+				 arr2.push({
+            id: $(this)[0].id, 
+            value:  $(this)[0].checked
+        });
+            }
+		if(($(this)[0].value =='')||($(this)[0].value =='on')) {
+                 
+                }else{
+		
+				
+	  arr.push({
+            id: $(this)[0].id, 
+            value:  $(this)[0].value
+        });
+// console.log($(this)[0].id);
+// 		console.log($(this)[0].value);
+                }
+            
+	
+//           console.log($(this)[0].id);
+// 		console.log($(this)[0].value);
+      });
+
+  });
+var arr3 = arr.concat(arr2);
+// console.log( (arr) );
+var myJsonString = JSON.stringify(arr3);
+// console.log($('#year').val() + $('#name').val() + $('#model').val() +$('#vin').val() +$('#inv').val());
+// console.log(myJsonString);
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": window.location.origin + window.location.pathname+"api/public/update/"+$('#inv').val(),
+  "method": "PUT",
+  "headers": {
+    "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "postman-token": "c170eefa-2c72-dc13-6714-089164d0dc14"
+  },
+  "data": {
+    "address": $('#address').val(),
+    "year": $('#year').val(),
+    "name": $('#name').val(),
+    "model": $('#model').val(),
+    "vin": $('#vin').val(),
+    "table_json":myJsonString
+  }
+}
+// console.log(settings);
+$.ajax(settings).done(function (response) {
+//   console.log(response);
+//   console.log($('#address').val());
+ location.reload();
+});
+        });
+        
+$('#savetodb').click(function() {
+  var arr = []; 
+			var arr2 = [];
+
+$('#tbody tr').each(function(index, element){
+ var $this = $(this);
+      var $items = $this.find("input,textarea");
+	  $.each($items, function(n, e)
+      {
+	if($(this)[0].checked == true) {
+				 arr2.push({
+            id: $(this)[0].id, 
+            value:  $(this)[0].checked
+        });
+            }
+		if(($(this)[0].value =='')||($(this)[0].value =='on')) {
+                 
+                }else{
+		
+				
+	  arr.push({
+            id: $(this)[0].id, 
+            value:  $(this)[0].value
+        });
+// console.log($(this)[0].id);
+// 		console.log($(this)[0].value);
+                }
+            
+	
+//           console.log($(this)[0].id);
+// 		console.log($(this)[0].value);
+      });
+
+  });
+var arr3 = arr.concat(arr2);
+// console.log( (arr) );
+var myJsonString = JSON.stringify(arr3);
+// console.log($('#year').val() + $('#name').val() + $('#model').val() +$('#vin').val() +$('#inv').val());
+// console.log(myJsonString);
+var form = new FormData();
+form.append("address", $('#address').val());
+form.append("year", $('#year').val());
+form.append("name", $('#name').val());
+form.append("model", $('#model').val());
+form.append("vin", $('#vin').val());
+form.append("invoice",  $("#inv").val());
+form.append("table_json",myJsonString );
+
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": window.location.origin + window.location.pathname+"api/public/newreceipts",
+  "method": "POST",
+  "headers": {
+    "cache-control": "no-cache",
+    "postman-token": "9a3879a3-912c-71eb-7227-3049cf7c7ac5"
+  },
+  "processData": false,
+  "contentType": false,
+  "mimeType": "multipart/form-data",
+  "data": form
+}
+
+$.ajax(settings).done(function (response) {
+//   console.log(response);
+ location.reload();
+});
+
+        });
+        
+        
+}
+        $(document).ready(function () {
+            // $('#sidebarCollapse').on('click', function () {
+            //     $('#sidebar').toggleClass('active');
+            //     $(this).toggleClass('active');
+            // });
+             $('#year').val((new Date()).getFullYear());
+             var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+var today = dd + '/' + mm + '/' + yyyy;
+
+ $("#tbody tr [id^=date]").click(function() {
+var row_id = $(this).attr('id').split('_')[1];
+$("#tbody tr #date_"+row_id).val(today);
+
+ });
+//  Textaera resize
+            $('#invoices').click(function(){
+                // alert();
+  $('#tbody').height(0).height(this.scrollHeight+3).find( 'textarea' ).change();
+            });
+        });
+    </script>
+    <script>
+var addate = function(){
+                 $('#year').val((new Date()).getFullYear());
+             var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth() + 1; //January is 0!
+
+var yyyy = today.getFullYear();
+if (dd < 10) {
+  dd = '0' + dd;
+} 
+if (mm < 10) {
+  mm = '0' + mm;
+} 
+var today = dd + '/' + mm + '/' + yyyy;
+
+ $("#tbody tr [id^=date]").click(function() {
+var row_id = $(this).attr('id').split('_')[1];
+$("#tbody tr #date_"+row_id).val(today);
+
+ });
+//  Textaera resize
+
+}   
+// Add New Row button
+  	 //    <tr class="item-row">
+		  //     <td class="item-name">
+		  //     	<div class="delete-wpr">
+		  //     		<textarea id ="date_3"></textarea>
+		  //     		<a class="delete" href="javascript:;" title="Remove row">X</a>
+		  //     	</div>
+		  //     </td>
+		  //     <td class="description">
+		  //     	<textarea id="descofwork_3"></textarea>
+		  //     </td>
+		  //     <td><textarea id="shop_3" class="cost"></textarea></td>
+		  //     <td><textarea id="contact_3" class="qty"></textarea></td>
+		  //     <td><textarea id="phone_3" class="qty"></textarea></td>
+		  //     <td><textarea id="labor_3" class="qty"></textarea></td>
+		  //     <td><textarea id="parts_3" class="qty"></textarea></td>
+		  //     <td><textarea id="warranty_3" class="qty"></textarea></td>
+		  //     <td><span id="total_3" class="price"></span></td>
+		  // </tr>
+
+
+var newrows = function() {
+               var rowsinput = $('#rowsinput').val();
+          
+           if(isNaN(rowsinput) || rowsinput =='') {
+                rowsinput =0;
+                //  alert(rowsinput);
+                }
+            
+          
+    var table_length = $("#tbody tr").length;
+    
+     var table_length_new =  parseInt(table_length, 10) + 1;
+    //  alert(table_length_new);
+
+          for (var i=table_length;i<table_length_new;i++){
+              var j = i+1;
+            //   alert(i+1);
+
+            $("#tbody").append('<tr class="item-row"> <td class="item-name"> <div class="delete-wpr"> <textarea id ="date_'+j+'"></textarea> <a class="delete" href="javascript:;" title="Remove row">X</a> </div> </td> <td class="description"> <textarea id="descofwork_'+j+'"></textarea> </td> <td><textarea id="shop_'+j+'" class="cost"></textarea></td> <td><textarea id="contact_'+j+'" class="qty"></textarea></td> <td><textarea id="phone_'+j+'" class="qty"></textarea></td> <td><textarea id="labor_'+j+'" class="qty"></textarea></td> <td><textarea id="parts_'+j+'" class="qty"></textarea></td> <td><textarea id="warranty_'+j+'" class="qty"></textarea></td> <td><span id="total_'+j+'" class="price"></span></td> </tr>');
+
+          }
+
+}
+       $("#addrow").click(newrows);
+       $("#addrow").click(addate);
+ $('#btn-save').click(function () {
+            $('#tbody tr').each(function(){
+    if($(this).find("textarea[id^='total_']")[0].value == '0.00'){
+	$(this).remove();
+    }
+  });
+  
+ });
+  $('#printPageButton').click(function () {
+      $('#tbody').height(0).height(this.scrollHeight+20).find( 'textarea' ).change();
+            $('#tbody tr').each(function(){
+    if($(this).find("textarea[id^='total_']")[0].value == '0.00'){
+	$(this).remove();
+    }
+  });
+  window.print();
+ });
+//Save File 
+        $('#btn-save').click(function () {
+            $('#custominputs').find('input').addClass('remove-borders');
+            $('#results_table').find('input').addClass('remove-borders');
+
+                            // var filename = $("#inv").val()+'.png';
+                            var filename = $("#name").val().replace(/ /g,"_") + '_'+$("#inv").val() +'.png'
+
+html2canvas(document.body).then(function(canvas) {
+    // Export canvas as a blob 
+    canvas.toBlob(function(blob) {
+        
+        window.saveAs(blob, filename);
+
+//         pdf.addImage(canvas, 'JPEG', 0, 0,width,height);
+//          pdf.save(filename);
+    });
+   
+});
+});
+
+
+    function imgFromHTML() {
+                var filename = $("#inv").val()+'.png';
+
+html2canvas(document.body).then(function(canvas) {
+    // Export canvas as a blob 
+    canvas.toBlob(function(blob) {
+
+        window.saveAs(blob, filename);
+
+    });
+});
+    }
+    //Total Cost on the basic table
+//On parts change value It calculates the total cost
+ $("#tbody tr [id^=parts],#tbody tr [id^=labor]").change(function() {
+    // $("#tbody tr [id^=total]").each(function(){
+var row_id = $(this).attr('id').split('_')[1];
+var a = $("#labor_"+row_id).val();
+var b = $("#parts_"+row_id).val();
+if(isNaN(a) ||a =='') {
+                a=0;
+                //  alert(rowsinput);
+                }
+if(isNaN(b) ||b =='') {
+                b=0;
+                //  alert(rowsinput);
+                }
+var c = parseFloat(a) + parseFloat(b);
+
+if(isNaN(c)) {
+$("#tbody tr #total_"+row_id).val('');
+}else{
+$("#tbody tr #total_"+row_id).val(c.toFixed(2));
+}
+// console.log( c);
+// });
+
+});
+
+
+ $(window).scroll(function() {
+     
+var total_sum =0; 
+
+for (var i=1;i<=$("#tbody tr [id^=total]").length;i++){
+var total_val =$("#tbody tr #total_"+i).val();
+ if(isNaN(total_val) ||total_val =='') {
+                total_val=0;
+                //  alert(rowsinput);
+                }
+//  console.log(total_val);
+total_sum +=parseFloat(total_val);
+    
+ }
+var vat = total_sum*19/100;
+var total_repair_expenses = total_sum + vat;
+// console.log(vat);
+// console.log(total_repair_expenses);
+$('#total_sum').val(total_sum.toFixed(2));
+$('#vat').val(vat.toFixed(2));
+$('#total_repair_expenses').val(total_repair_expenses.toFixed(2));
+});
+
+
+ $("#tbody tr [id^=total]").mouseleave(function() {
+     
+var total_sum =0; 
+
+for (var i=1;i<=$("#tbody tr [id^=total]").length;i++){
+var total_val =$("#tbody tr #total_"+i).val();
+ if(isNaN(total_val) ||total_val =='') {
+                total_val=0;
+                //  alert(rowsinput);
+                }
+//  console.log(total_val);
+total_sum +=parseFloat(total_val);
+    
+ }
+var vat = total_sum*19/100;
+var total_repair_expenses = total_sum + vat;
+// console.log(vat);
+// console.log(total_repair_expenses);
+$('#total_sum').val(total_sum.toFixed(2));
+$('#vat').val(vat.toFixed(2));
+$('#total_repair_expenses').val(total_repair_expenses.toFixed(2));
+});
+
+ $("#tbody tr [id^=total],#tbody tr [id^=parts],#tbody tr [id^=labor]").change(function() {
+     
+var total_sum =0; 
+
+for (var i=1;i<=$("#tbody tr [id^=total]").length;i++){
+var total_val =$("#tbody tr #total_"+i).val();
+ if(isNaN(total_val) ||total_val =='') {
+                total_val=0;
+                //  alert(rowsinput);
+                }
+//  console.log(total_val);
+total_sum +=parseFloat(total_val);
+    
+ }
+var vat = total_sum*19/100;
+var total_repair_expenses = total_sum + vat;
+// console.log(vat);
+// console.log(total_repair_expenses);
+$('#total_sum').val(total_sum.toFixed(2));
+$('#vat').val(vat.toFixed(2));
+$('#total_repair_expenses').val(total_repair_expenses.toFixed(2));
+});
+ $(document).on('click', '.delete', function () {
+     $(this).closest('tr').remove();
+     return false;
+ });
+
+  </script>
+</body>
+
+</html>

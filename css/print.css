@@ -1,0 +1,12 @@
+#hiderow,
+.delete,
+#invoices,
+#buttons{
+  display: none;
+}
+body{
+	zoom:80%;
+}
+#tbody {
+    border:1px solid black;
+}
